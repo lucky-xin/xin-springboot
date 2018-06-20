@@ -1,6 +1,6 @@
-package com.xin.springboot.web.test.controller;
+package com.xin.springboot.learn.controller;
 
-import com.xin.springboot.web.test.model.XinApplicationContext;
+import com.xin.springboot.learn.model.XinApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Caching;

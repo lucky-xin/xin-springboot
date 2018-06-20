@@ -1,7 +1,6 @@
-package com.xin.springboot.web.test.model;
+package com.xin.springboot.learn.model;
 
 import org.springframework.beans.factory.DisposableBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;

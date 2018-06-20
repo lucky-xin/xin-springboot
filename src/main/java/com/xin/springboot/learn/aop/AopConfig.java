@@ -1,4 +1,4 @@
-package com.xin.springboot.web.test.aop;
+package com.xin.springboot.learn.aop;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -14,4 +14,5 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @Configuration
 @EnableAspectJAutoProxy
 public class AopConfig {
+
 }

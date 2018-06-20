@@ -1,4 +1,4 @@
-package com.xin.springboot.web.test.model;
+package com.xin.springboot.learn.model;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
