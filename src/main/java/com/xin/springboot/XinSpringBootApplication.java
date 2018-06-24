@@ -10,16 +10,16 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @SpringBootApplication(scanBasePackages = "com.xin.springboot")
 @ServletComponentScan//扫描监听类
 @EnableAspectJAutoProxy
-public class XinSpringbootApplication extends SpringBootServletInitializer {
+public class XinSpringBootApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(XinSpringbootApplication.class, args);
+        SpringApplication.run(XinSpringBootApplication.class, args);
     }
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        builder.sources(XinSpringbootApplication.class);
+        builder.sources(XinSpringBootApplication.class);
         return super.configure(builder);
     }
 }
