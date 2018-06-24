@@ -27,5 +27,5 @@ public class VideoQueryService {
 - 自定义HandlerAdapter
 ### DispatcherServlet初始化也会去IoC之中查找所有HandlerAdapter的实现类，自定义HandlerAdapter只要注册到IoC就可用，和HandlerMapping一样也是先去高优先级HandlerAdapter判断是否可以处理HandlerMapping查找handler时返回的handler如果可以则使用该HandlerAdapter。[具体实现请看](https://note.youdao.com/share/?id=6b38408f9e21444057368247833a91c7&type=note#/)自定义HandlerAdapter完成访问自定义服务相关功能，[具体实现](https://github.com/lucky-xin/xin-springboot/blob/master/src/main/java/com/xin/springboot/web/servlet/CustomHandlerAdapter.java)
 
-## 为了把原有的老框架整合到SpringBoot之中，主要为了新框架使用了SpringBoot，为了不影响原有的框架的服务，把老框架的服务注册到Spring之中，这样原有框架能正常访问，还可以愉快的拥抱SpringBoot。。
+## 为了把原有的老框架整合到SpringBoot之中，只需要自定义HandlerMapping和HandlerAdapter，并把handler注册到Spring IoC之中就可以了，为什么要整合呢？主要为了新框架使用了SpringBoot，为了不影响原有的框架的服务，把老框架的服务注册到Spring之中，这样原有框架能正常访问，还可以愉快的拥抱SpringBoot。。
 
