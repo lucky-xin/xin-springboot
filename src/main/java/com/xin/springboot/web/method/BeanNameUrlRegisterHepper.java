@@ -1,12 +1,12 @@
 package com.xin.springboot.web.method;
 
 import com.suntek.eap.log.EapServerLog;
-import com.suntek.eap.pico.annotation.BeanService;
 import com.suntek.eap.pico.annotation.LocalComponent;
 import com.suntek.eap.pico.annotation.MessageConsumer;
-import com.suntek.eap.pico.annotation.QueryService;
 import com.suntek.eap.util.Dom4jUtil;
 import com.xin.springboot.web.Constants;
+import com.xin.springboot.web.annotation.CustomController;
+import com.xin.springboot.web.annotation.CustomService;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.Element;
@@ -64,20 +64,16 @@ public class BeanNameUrlRegisterHepper {
     @SuppressWarnings("unchecked")
     private void doRegisterUrlHandler(String packageName, ServletContext servletContext)
             throws Exception {
-//        EapServerLog.log.debug("LocalComponent-scan: " + packageName);
         ConfigurableApplicationContext context = (ConfigurableApplicationContext) servletContext.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
         BeanDefinitionRegistry registry = (BeanDefinitionRegistry) context.getBeanFactory();
         DefaultListableBeanFactory localBeanFactory = new DefaultListableBeanFactory();
         for (Class clazz : getClasses(packageName)) {
-            if (!clazz.isAnnotationPresent(LocalComponent.class)) {
+            if (!clazz.isAnnotationPresent(CustomController.class)) {
                 continue;
             }
             for (Method method : clazz.getMethods()) {
-                if (method.isAnnotationPresent(BeanService.class) && method.isAnnotationPresent(QueryService.class)) {
-                    throw new RuntimeException("");
-                }
 
-                if (!method.isAnnotationPresent(BeanService.class) && !method.isAnnotationPresent(QueryService.class)) {
+                if (!method.isAnnotationPresent(CustomService.class)) {
                     continue;
                 }
 

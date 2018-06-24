@@ -1,5 +1,6 @@
 package com.xin.springboot.learn.controller;
 
+import com.xin.springboot.learn.model.AopBean;
 import com.xin.springboot.learn.model.XinApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,14 +25,24 @@ public class TestController {
     @Autowired
     private XinApplicationContext applicationContext;
 
+    @Autowired
+    AopBean aopBean;
+
+    private Object getBean(String name) {
+        return applicationContext.getApplicationContext().getBean(name);
+    }
+
+    private void destroyBean(Object bean) {
+        applicationContext.getApplicationContext().getAutowireCapableBeanFactory().destroyBean(bean);
+    }
+
+
     @RequestMapping(value = "/hello/{id}", method = RequestMethod.GET)
     public String sayHello(HttpServletRequest request, @PathVariable("id") Integer id, @RequestParam(value = "name", required = false, defaultValue = "luchaoxin") String userName) {
         //localhost:9080/luchaoxin/xin/hello/122?name=lcx
-        System.out.println(request.getRequestURI());
-        Object xinBean = applicationContext.getApplicationContext().getBean("xinBean");
-        System.out.println(xinBean);
-        applicationContext.getApplicationContext().getAutowireCapableBeanFactory().destroyBean(xinBean);
-
+        System.out.println("注入aopBean：" + aopBean.getClass());
+        aopBean.throwException();
+        System.out.println(aopBean.getName("lcx", 18));
         return "Hello,Spring Boot!" + " age:" + age + "---- id:" + id + "---name:" + userName;
     }
 

@@ -47,8 +47,4 @@ public class XinBean implements DisposableBean {
         System.out.println("destroyMethod2");
     }
 
-    @Override
-    public String toString() {
-        return "2018-06-14";
-    }
 }

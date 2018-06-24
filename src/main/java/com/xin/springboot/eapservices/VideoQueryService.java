@@ -13,7 +13,6 @@ import com.xin.springboot.web.annotation.CustomService;
  * @Copyright (C)2018 , Luchaoxin
  */
 
-
 @CustomController(value = "video")
 public class VideoQueryService {
 
